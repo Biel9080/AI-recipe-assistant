@@ -1,4 +1,5 @@
 # 🍳 IA Geradora de Receitas
+
 Gerador de receitas utilizando Inteligência Artificial com LangChain e Groq.
 
 O projeto funciona no terminal e cria receitas completas de forma simples, divertida e prática.
@@ -12,16 +13,17 @@ O projeto funciona no terminal e cria receitas completas de forma simples, diver
 - Groq API
 - Llama 3
 - Prompt Engineering
+- python-dotenv
 
 ---
 
 ## ⚙️ Funcionalidades
 
-✔ Geração automática de receitas  
-✔ Respostas organizadas e amigáveis  
-✔ Receitas completas com ingredientes e preparo  
-✔ Interface simples no terminal  
-✔ Uso de IA com LangChain + Groq  
+- Geração automática de receitas
+- Respostas organizadas e amigáveis
+- Receitas completas com ingredientes e preparo
+- Interface simples no terminal
+- Uso de IA com LangChain + Groq
 
 ---
 
@@ -33,73 +35,50 @@ A IA responde como um chef de cozinha experiente, ensinando receitas de maneira 
 
 ---
 
-## 🔑 Configuração da API
+## 🔑 Como configurar a API da Groq
 
-Crie um arquivo chamado `.env` e coloque sua chave da API:
-
-```env
-GROQ_API_KEY=sua_chave_aqui
-```
-## 🔑 Como conseguir sua chave da API
-
-1. Acesse o site da Groq:
-
-https://console.groq.com
-
+1. Acesse o site da [Groq](https://console.groq.com).
 2. Crie uma conta ou faça login.
+3. Acesse a área de API Keys e clique em **Create API Key**.
+4. Copie a chave gerada.
 
-3. Vá até a área de API Keys.
-
-4. Clique em:
-
-```txt
-Create API Key
-```
-
-5. Copie a chave gerada.
-
----
-
-## 📁 Configurando no projeto
-
-Crie um arquivo chamado `.env` na pasta do projeto.
-
-Dentro dele coloque:
+Na pasta principal do projeto, crie um arquivo chamado `.env` e adicione:
 
 ```env
 GROQ_API_KEY=sua_chave_aqui
 ```
 
-Exemplo:
+O arquivo `.env` armazena sua chave em seu computador. Não compartilhe nem publique esse arquivo no GitHub.
 
-```env
-GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxx
-```
-
----
-
-⚠️ Nunca publique sua chave no GitHub.
-```
 ---
 
 ## ▶️ Como executar
 
-Instale as dependências:
+### 1. Instale as dependências
+
+Com o terminal aberto na pasta do projeto, execute:
 
 ```bash
-pip install -U langchain langchain-community langchain-groq python-dotenv
+pip install -U langchain langchain-core langchain-groq python-dotenv
 ```
 
-Execute o projeto:
+### 2. Configure a chave da API
+
+Verifique se o arquivo `.env` está na mesma pasta do arquivo `main.py` e contém sua chave da Groq.
+
+### 3. Execute o projeto
 
 ```bash
 python main.py
 ```
+
+O programa será iniciado no terminal. Digite o que deseja comer para receber uma receita. Para encerrar, digite `x`.
+
 ---
 
-## 📷 Exemplo de Uso
+## 📷 Exemplo de uso
 
-```txt
+```text
 Você: bolo de chocolate
 
 Receita:
@@ -131,4 +110,4 @@ Durante este projeto foram praticados:
 
 ## 📄 Licença
 
-MIT License
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo `LICENSE` para mais informações.
