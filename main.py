@@ -1,26 +1,29 @@
 # ============================================
-# INSTALAÇÃO DAS BIBLIOTECAS
-# ============================================
-!pip install -q langchain langchain-community langchain-groq
-
-# ============================================
 # IMPORTAÇÕES
 # ============================================
 import os
+
+from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 
 # ============================================
-# CONFIGURAÇÕES (COLOQUE SUA CHAVE AQUI)
+# CONFIGURAÇÃO DA CHAVE DA API
 # ============================================
-os.environ["GROQ_API_KEY"] = "SUA_CHAVE_AQUI"  # Substitua pela sua chave
+load_dotenv()
+
+if not os.getenv("GROQ_API_KEY"):
+    raise SystemExit(
+        "Erro: chave da Groq não encontrada. "
+        "Crie um arquivo .env e adicione GROQ_API_KEY=sua_chave_aqui."
+    )
 
 # ============================================
 # MODELO DE IA (GROQ)
 # ============================================
 llm = ChatGroq(
     model="llama-3.3-70b-versatile",
-    temperature=0.7  # maior criatividade
+    temperature=0.7
 )
 
 # ============================================
@@ -54,16 +57,11 @@ chain = prompt | llm
 
 while True:
     pergunta = input("Você: ")
-    
+
     if pergunta.lower() == "x":
         print("Encerrando...")
         break
-    
-    resposta = chain.invoke({
-        "pergunta": pergunta
-    })
-    
+
+    resposta = chain.invoke({"pergunta": pergunta})
+
     print("\nReceita:\n", resposta.content, "\n")
-
-
-
